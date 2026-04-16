@@ -1,7 +1,8 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
+    document
+      .querySelector(this.getAttribute("href"))
       .scrollIntoView({ behavior: "smooth" });
   });
 });
@@ -15,7 +16,8 @@ const form = document.getElementById("contact-form");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  emailjs.sendForm("service_1gzsu0v", "template_rbv0k9k", form)
+  emailjs
+    .sendForm("service_1gzsu0v", "template_rbv0k9k", form)
     .then(() => {
       alert("Message sent successfully!");
       form.reset();
