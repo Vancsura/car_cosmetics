@@ -191,12 +191,29 @@ section {
   width: 280px;
   height: 400px;
   padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-position: center;
   color: white;
   position: relative;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.service-card p {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: auto;
 }
 
 .service-card::before {
