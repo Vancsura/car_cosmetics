@@ -7,9 +7,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// A kulcsok környezeti változókból érhetők el.
+// Az email küldéshez a legjobb megoldás backend használata lenne, de jelen esetben a frontend megoldást választottam az egyszerűség kedvéért.
+// A változókat nem lehet a jelenlegi környezetben megfelelően importálni, ezért az email küldés most nem működik.
 emailjs.init({
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  publicKey: "PUBLIC_KEY",
 });
 
 const form = document.getElementById("contact-form");
@@ -18,7 +19,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   emailjs
-    .sendForm(import.meta.env.VITE_SERVICE_KEY, import.meta.env.VITE_TEMPLATE_KEY, form)
+    .sendForm("SERVICE_KEY", "TEMPLATE_KEY", form)
     .then(() => {
       alert("Message sent successfully!");
       form.reset();
@@ -120,3 +121,55 @@ faqQuestions.forEach((question) => {
     item.classList.toggle("active");
   });
 });
+
+const statNumbers = document.querySelectorAll(".stat-number");
+const statsSection = document.querySelector(".stats");
+
+let statsStarted = false;
+
+function animateValue(element, target, duration = 1800) {
+  const start = 0;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    const easedProgress = 1 - Math.pow(1 - progress, 3);
+    const currentValue = Math.floor(start + (target - start) * easedProgress);
+
+    element.textContent = currentValue;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = target;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+const observer = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !statsStarted) {
+        statsStarted = true;
+
+        statNumbers.forEach((stat) => {
+          const target = Number(stat.dataset.target);
+          animateValue(stat, target);
+        });
+
+        obs.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.35,
+  },
+);
+
+if (statsSection) {
+  observer.observe(statsSection);
+}
