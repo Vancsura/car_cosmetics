@@ -19,19 +19,36 @@
       <div class="buttons">
         <a href="#about" class="nav-btn">About</a>
         <a href="#services" class="nav-btn">Services</a>
+        <a href="#faq" class="nav-btn">FAQ</a>
         <a href="#contact" class="nav-btn">Contact</a>
       </div>
     </nav>
 
     <section id="hero">
-      <h1>Premium Car Cosmetics</h1>
-      <p>Make your car look brand new</p>
-      <button>Book Now</button>
+      <div class="hero-overlay"></div>
+
+      <div class="car-stage">
+        <img src="pictures/car_bg.jpg" alt="Autó" class="car-img" />
+
+        <span class="light-mask left"></span>
+        <span class="light-mask right"></span>
+      </div>
+
+      <div class="hero-content">
+        <h1>Premium Car Cosmetics</h1>
+        <p>"Details make perfection and perfection is not a detail."</p>
+        <p><i>Leonardo Da Vinci</i></p>
+        <a href="#contact" class="hero-button">Book now</a>
+      </div>
     </section>
 
     <section id="about">
-      <div class="container">
-        <h2>About</h2>
+      <div class="about-left">
+        <h2>About Us</h2>
+        <div class="about-icon">ⓘ</div>
+      </div>
+
+      <div class="about-right">
         <p>
           We specialize in premium car cosmetics, delivering showroom-quality
           results with precision and care. Our mission is to restore and protect
@@ -43,33 +60,126 @@
     </section>
 
     <section id="services">
-      <h2>Services</h2>
-      <div class="service-cards">
-        <div class="service-card">
-          <h3>Exterior Detailing</h3>
-          <p>Deep cleaning and polishing for a flawless exterior finish.</p>
+      <div class="services-slider">
+        <div class="services-track">
+          <div class="service-card"><h3>Ceramic coating</h3></div>
+          <div class="service-card"><h3>Paint correction</h3></div>
+          <div class="service-card"><h3>Interior detailing</h3></div>
+          <div class="service-card"><h3>Exterior detailing</h3></div>
+          <div class="service-card"><h3>Headlight restoration</h3></div>
+          <div class="service-card"><h3>Vinyl wrapping</h3></div>
+          <div class="service-card"><h3>Waxing</h3></div>
         </div>
-        <div class="service-card">
-          <h3>Interior Cleaning</h3>
-          <p>Professional interior care for a fresh and refined cabin.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="faq-left">
+        <h2>Frequently Asked Questions</h2>
+        <div class="about-icon">❔</div>
+      </div>
+
+      <div class="faq-right">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How long does a full car detailing take?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              A full detailing service usually takes between 3 and 6 hours,
+              depending on the vehicle’s size and condition.
+            </p>
+          </div>
         </div>
-        <div class="service-card">
-          <h3>Protective Coating</h3>
-          <p>
-            Long-lasting protection and shine with premium coating solutions.
-          </p>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do I need to book an appointment in advance?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, we recommend booking in advance to make sure we can reserve a
+              convenient time for your vehicle.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How long does ceramic coating last?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Ceramic coating can last from 1 to 5 years, depending on the
+              product used and how well the car is maintained.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can you remove scratches from the paint?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Light and medium scratches can often be removed or greatly reduced
+              with paint correction treatments.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you clean the car interior as well?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, we offer full interior detailing, including vacuuming, deep
+              cleaning, and surface treatment.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What products do you use?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We use premium-quality professional products designed to safely
+              clean, protect, and enhance your vehicle.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <form id="contact-form">
-        <input type="text" name="user_name" placeholder="Name" required />
-        <input type="email" name="user_email" placeholder="Email" required />
-        <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+      <div class="contact-left">
+        <h2>Contacts</h2>
+        <div class="contact-icon">✉</div>
+
+        <div class="contact-details">
+          <p>📞 <strong>Phone:</strong> +36 30 123 4567</p>
+          <p>🏠 <strong>Address:</strong> 1234 Budapest, Példa utca 12.</p>
+          <p>✉ <strong>Email:</strong> info@carcosmetics.hu</p>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form id="contact-form">
+          <input type="text" name="user_name" placeholder="Name" required />
+          <input type="email" name="user_email" placeholder="Email" required />
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
