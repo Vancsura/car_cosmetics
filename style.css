@@ -668,6 +668,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 1070px) {
+  #about {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
   body {
     padding-top: 70px;
@@ -760,6 +766,38 @@ body {
   #services,
   #contact {
     flex-direction: column;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .stats {
+    margin-top: 25px;
+    gap: 25px;
+  }
+
+  .stat {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .stat-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .stat-number {
+    font-size: 32px;
+    height: 44px;
+    min-width: 100px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    margin-top: 6px;
   }
 
   #contact form {
