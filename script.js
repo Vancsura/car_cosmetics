@@ -7,8 +7,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// A kulcsok környezeti változókból érhetők el.
 emailjs.init({
-  publicKey: "PUBLIC_KEY",
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 });
 
 const form = document.getElementById("contact-form");
@@ -17,7 +18,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   emailjs
-    .sendForm("SERVICE_KEY", "TEMPLATE_KEY", form)
+    .sendForm(import.meta.env.VITE_SERVICE_KEY, import.meta.env.VITE_TEMPLATE_KEY, form)
     .then(() => {
       alert("Message sent successfully!");
       form.reset();
