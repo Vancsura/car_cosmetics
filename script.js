@@ -8,7 +8,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 emailjs.init({
-  publicKey: "nHBJHwrfbfuhJk7zl",
+  publicKey: "PUBLIC_KEY",
 });
 
 const form = document.getElementById("contact-form");
@@ -17,7 +17,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   emailjs
-    .sendForm("service_1gzsu0v", "template_rbv0k9k", form)
+    .sendForm("SERVICE_KEY", "TEMPLATE_KEY", form)
     .then(() => {
       alert("Message sent successfully!");
       form.reset();
