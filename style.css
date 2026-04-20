@@ -463,13 +463,11 @@ section {
   line-height: 1.8;
 }
 
-.about-icon {
+.question-icon {
   text-align: center;
-  margin-top: 40px;
-  font-size: 90px;
+  margin-top: 20px;
+  font-size: 60px;
   color: #fff;
-  opacity: 0.7;
-  letter-spacing: 2px;
 }
 
 .stats {
