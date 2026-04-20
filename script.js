@@ -10,23 +10,84 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Az email küldéshez a legjobb megoldás backend használata lenne, de jelen esetben a frontend megoldást választottam az egyszerűség kedvéért.
 // A változókat nem lehet a jelenlegi környezetben megfelelően importálni, ezért az email küldés most nem működik.
 emailjs.init({
-  publicKey: "PUBLIC_KEY",
+  publicKey: "nHBJHwrfbfuhJk7zl",
 });
 
 const form = document.getElementById("contact-form");
+const submitButton = form.querySelector('button[type="submit"]');
+const formStartedAt = Date.now();
+
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+  const icon = toast.querySelector(".toast-icon");
+  const text = toast.querySelector(".toast-text");
+
+  text.textContent = message;
+  toast.classList.remove("success", "error");
+
+  if (type === "error") {
+    toast.classList.add("error");
+    icon.textContent = "✖";
+  } else {
+    toast.classList.add("success");
+    icon.textContent = "✔";
+  }
+
+  toast.classList.add("show");
+
+  clearTimeout(toast.hideTimeout);
+  toast.hideTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  const honeypot = document.getElementById("website");
+  const captchaResponse = grecaptcha.getResponse();
+  const now = Date.now();
+  const lastSent = Number(localStorage.getItem("lastFormSubmitTime") || "0");
+
+  if (honeypot && honeypot.value.trim() !== "") {
+    showToast("Spam detected.", "error");
+    return;
+  }
+
+  if (now - formStartedAt < 4000) {
+    showToast("Please wait a moment before sending.", "error");
+    return;
+  }
+
+  if (now - lastSent < 30000) {
+    showToast("Please wait 30 seconds before sending again.", "error");
+    return;
+  }
+
+  if (!captchaResponse) {
+    showToast("Please complete the reCAPTCHA.", "error");
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+
   emailjs
-    .sendForm("SERVICE_KEY", "TEMPLATE_KEY", form)
+    .sendForm("service_1gzsu0v", "template_rbv0k9k", form)
     .then(() => {
-      alert("Message sent successfully!");
+      localStorage.setItem("lastFormSubmitTime", String(Date.now()));
+      showToast("Email sent successfully!", "success");
       form.reset();
+      grecaptcha.reset();
     })
     .catch((error) => {
-      alert("Failed to send message.");
       console.error(error);
+      showToast("Failed to send email.", "error");
+      grecaptcha.reset();
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send";
     });
 });
 

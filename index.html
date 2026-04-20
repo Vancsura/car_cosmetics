@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
   </head>
+  <div id="toast" class="toast">
+    <span class="toast-icon">✔</span>
+    <span class="toast-text">Email sent successfully!</span>
+  </div>
   <body>
     <nav id="navbar">
       <div class="logo">
@@ -256,8 +260,9 @@
                 16 0 0 0 6 6l1.48-1.16a2 2 0 0 
                 1 2.11-.45c.84.27 1.71.47 
                 2.6.59A2 2 0 0 1 22 16.92z"
-              /></svg>
-              <strong>Phone:</strong> +36 30 123 4567
+              />
+            </svg>
+            <strong>Phone:</strong> +36 30 123 4567
           </p>
           <p>
             <svg
@@ -267,8 +272,9 @@
               stroke="currentColor"
             >
               <path d="M3 11l9-7 9 7"></path>
-              <path d="M5 10v10h14V10"></path></svg>
-              <strong>Address:</strong> 1234 Budapest, Ilka utca 35.
+              <path d="M5 10v10h14V10"></path>
+            </svg>
+            <strong>Address:</strong> 1234 Budapest, Ilka utca 35.
           </p>
           <p>✉ <strong>Email:</strong> info@carcosmetics.hu</p>
         </div>
@@ -277,9 +283,18 @@
       <div class="contact-right">
         <h2 style="margin-bottom: 60px">Send us a message today!</h2>
         <form id="contact-form">
+          <input
+            type="text"
+            name="website"
+            id="website"
+            class="hp-field"
+            tabindex="-1"
+            autocomplete="off"
+          />
           <input type="text" name="user_name" placeholder="Name" required />
           <input type="email" name="user_email" placeholder="Email" required />
           <textarea name="message" placeholder="Message" required></textarea>
+          <div class="g-recaptcha" data-sitekey="6Lf2dsEsAAAAAPhkf6MHDc2QHDc6R6zsCCrKzSgv"></div>
           <button type="submit">Send</button>
         </form>
       </div>
@@ -295,6 +310,7 @@
       ><br />
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="script.js"></script>
   </body>
 </html>
