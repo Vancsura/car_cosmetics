@@ -10,7 +10,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Az email küldéshez a legjobb megoldás backend használata lenne, de jelen esetben a frontend megoldást választottam az egyszerűség kedvéért.
 // A változókat nem lehet a jelenlegi környezetben megfelelően importálni, ezért az email küldés most nem működik.
 emailjs.init({
-  publicKey: "nHBJHwrfbfuhJk7zl",
+  publicKey: "PUBLIC_KEY",
 });
 
 const form = document.getElementById("contact-form");
@@ -73,7 +73,7 @@ form.addEventListener("submit", function (e) {
   submitButton.textContent = "Sending...";
 
   emailjs
-    .sendForm("service_1gzsu0v", "template_rbv0k9k", form)
+    .sendForm("SERVICE_KEY", "TEMPLATE_KEY", form)
     .then(() => {
       localStorage.setItem("lastFormSubmitTime", String(Date.now()));
       showToast("Email sent successfully!", "success");

@@ -69,50 +69,50 @@ body.light-theme {
   );
 
   --about-left-bg: radial-gradient(
-  circle,
-  #f5f7fa 0%,
-  #d6dbe1 50%,
-  #bfc5cc 100%
-);
+    circle,
+    #f5f7fa 0%,
+    #d6dbe1 50%,
+    #bfc5cc 100%
+  );
   --about-left-text: #111;
   --about-right-bg: linear-gradient(
-     to bottom,
-  #dcdcdc 0%,
-  #f8f8f8 50%,
-  #dcdcdc 100%
+    to bottom,
+    #dcdcdc 0%,
+    #f8f8f8 50%,
+    #dcdcdc 100%
   );
   --about-right-text: #111;
 
   --services-bg: linear-gradient(to bottom, #c9ccd1, #f1f3f6, #c9ccd1);
 
   --faq-left-bg: linear-gradient(
-     to bottom,
-  #dcdcdc 0%,
-  #f8f8f8 50%,
-  #dcdcdc 100%
+    to bottom,
+    #dcdcdc 0%,
+    #f8f8f8 50%,
+    #dcdcdc 100%
   );
   --faq-left-text: #111;
 
   --faq-right-bg: radial-gradient(
-  circle,
-  #f5f7fa 0%,
-  #d6dbe1 50%,
-  #bfc5cc 100%
-);
+    circle,
+    #f5f7fa 0%,
+    #d6dbe1 50%,
+    #bfc5cc 100%
+  );
   --faq-right-text: #111;
 
   --contact-left-bg: radial-gradient(
-  circle,
-  #f5f7fa 0%,
-  #d6dbe1 50%,
-  #bfc5cc 100%
-);
+    circle,
+    #f5f7fa 0%,
+    #d6dbe1 50%,
+    #bfc5cc 100%
+  );
   --contact-left-text: #111;
   --contact-right-bg: linear-gradient(
-     to bottom,
-  #dcdcdc 0%,
-  #f8f8f8 50%,
-  #dcdcdc 100%
+    to bottom,
+    #dcdcdc 0%,
+    #f8f8f8 50%,
+    #dcdcdc 100%
   );
   --contact-right-text: #111;
 
@@ -129,7 +129,7 @@ body.dark-theme {
   --text-light: #fff;
 
   --navbar-bg: linear-gradient(
-     to bottom,
+    to bottom,
     #1f1605 0%,
     #5e4510 50%,
     #1f1605 100%
@@ -669,7 +669,8 @@ section {
 }
 
 .faq-item {
-  border-bottom: 1px solid color-mix(in srgb, var(--faq-right-text) 20%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--faq-right-text) 20%, transparent);
   padding: 18px 0;
 }
 
